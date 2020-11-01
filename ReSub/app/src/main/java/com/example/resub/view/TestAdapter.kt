@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.resub.R
 import kotlinx.android.synthetic.main.recycler_list_item_app.view.*
 
-class MainAdapter(private val packageManager: PackageManager, private val context : Context,
-                  private var data:List<ResolveInfo>) : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
+class TestAdapter(private val packageManager: PackageManager, private val context : Context,
+                  private var data:List<ResolveInfo>) : RecyclerView.Adapter<TestAdapter.ViewHolder>() {
     init{
         sortData()
     }

@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">ReSub</string>
+
+    <!-- MAIN -->
+    <string name="main_this_month_cost">이 달의 구독 결제 금액</string>
+    <string name="main_won">원</string>
+
 </resources>

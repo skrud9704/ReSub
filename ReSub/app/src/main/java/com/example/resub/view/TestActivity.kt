@@ -6,12 +6,12 @@ import android.content.pm.ResolveInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.resub.R
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_test.*
 
-class MainActivity : AppCompatActivity() {
+class TestActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_test)
 
         val pakageManager : PackageManager = packageManager
         val intent = Intent(Intent.ACTION_MAIN,null)
@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         val resloveInfos : List<ResolveInfo> = pakageManager.queryIntentActivities(intent,0)
 
         app_total.text = "총 ${resloveInfos.size}개"
-        val mainAdapter = MainAdapter(packageManager,this,resloveInfos)
+        val mainAdapter = TestAdapter(packageManager,this,resloveInfos)
         app_list.adapter = mainAdapter
 
 
