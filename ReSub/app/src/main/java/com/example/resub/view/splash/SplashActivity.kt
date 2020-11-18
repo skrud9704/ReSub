@@ -31,7 +31,6 @@ class SplashActivity : AppCompatActivity() {
 
     // 설치된 앱 정보 가져오기
     private fun getLocalAppData(){
-        progress.visibility = View.VISIBLE
         val pakageManager : PackageManager = packageManager
         val intent = Intent(Intent.ACTION_MAIN,null)
         intent.addCategory(Intent.CATEGORY_LAUNCHER)
@@ -73,9 +72,14 @@ class SplashActivity : AppCompatActivity() {
             }
         }
 
-        progress.visibility = View.GONE
+        goMain()
+
+    }
+
+    private fun goMain(){
         val intent = Intent(this,MainActivity::class.java)
         startActivity(intent)
+        finish()
     }
 
 }
