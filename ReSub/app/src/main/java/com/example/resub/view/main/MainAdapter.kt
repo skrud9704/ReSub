@@ -2,9 +2,11 @@ package com.example.resub.view.main
 
 import android.content.Context
 import android.graphics.Color
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
@@ -14,7 +16,7 @@ import com.example.resub.R
 import com.example.resub.model.AppVO
 import kotlinx.android.synthetic.main.recycler_list_item_main.view.*
 
-class MainAdapter(private val context: Context, private var data : List<AppVO>)
+class MainAdapter(private val context: Context, private var data : List<AppVO>, private var icon : ArrayList<Drawable>)
     : RecyclerView.Adapter<MainAdapter.ViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -31,6 +33,7 @@ class MainAdapter(private val context: Context, private var data : List<AppVO>)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         if(position!=data.size) {
             holder.app_name.text = data[position].app_label
+            holder.app_img.setImageDrawable(icon[position])
             holder.card.setCardBackgroundColor(Color.parseColor(data[position].app_color))
         }else{
             // 카드뷰 배경 투명하게 하려면
@@ -50,9 +53,11 @@ class MainAdapter(private val context: Context, private var data : List<AppVO>)
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val app_name : TextView = itemView.slide_item_name
+        val app_img : ImageView = itemView.slide_item_img
         val card : CardView = itemView.slide_item_card
         val content : LinearLayout = itemView.slide_item_content
         val no_content : LinearLayout = itemView.slide_item_no_content
+
     }
 
 

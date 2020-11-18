@@ -94,7 +94,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 app:itemTextColor="@android:color/white"
-                app:labelVisibilityMode="labeled" />
+                app:labelVisibilityMode="unlabeled"
+                android:backgroundTint="@color/colorWhite" />
         </RelativeLayout>
 
     </LinearLayout>
