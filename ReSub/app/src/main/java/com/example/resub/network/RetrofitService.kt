@@ -8,7 +8,6 @@ import retrofit2.http.POST
 
 interface RetrofitService {
 
-    @FormUrlEncoded
     @POST("Apps/load")
     fun loadServiceApps() : Call<ArrayList<AppVO>>
 
