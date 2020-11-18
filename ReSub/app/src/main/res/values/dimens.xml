@@ -2,9 +2,12 @@
 <resources>
 
     <!-- 기본 마진 25dp 백그라운드와 컨텐츠 간격 -->
-    <dimen name="activity_margin_basic">25dp</dimen>
+    <dimen name="basic_margin_title">25dp</dimen>
 
     <!-- 사이드메뉴 아이콘 사이즈 -->
     <dimen name="icon_size_menu">25dp</dimen>
+
+    <!-- 컨텐츠 기본 마진 30dp -->
+    <dimen name="basic_margin_contents">35dp</dimen>
     
 </resources>

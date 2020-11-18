@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.main.MainActivity"
     android:orientation="vertical">
 
@@ -13,13 +13,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_margin="@dimen/activity_margin_basic">
+        android:layout_margin="@dimen/basic_margin_title">
         <!-- LOGO 시작 -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/app_name"
-            style="@style/TextAppearance.AppCompat.Bold"/>
+            style="@style/TextAppearance.AppCompat.Bold"
+            android:textSize="27sp"/>
         <!-- LOGO 끝 -->
         <!-- SIDE MENU 시작-->
         <LinearLayout
@@ -38,36 +39,65 @@
     </LinearLayout>
     <!-- HEAD 끝 -->
     <!-- MAIN 시작 -->
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!-- 금액 부분 시작 -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="@dimen/basic_margin_contents">
         <TextView
             style="@style/TextAppearance.AppCompat.Normal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/main_this_month_cost"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.206"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.052" />
+            android:text="@string/main_this_month_cost"/>
 
         <TextView
             android:id="@+id/this_month_cost"
+            style="@style/TextAppearance.AppCompat.Bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/main_won"
-            style="@style/TextAppearance.AppCompat.Bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.116"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.121" />
+            android:text="@string/main_won"/>
+    </LinearLayout>
+    <!-- 금액 부분 끝 -->
+    <!--  -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:orientation="vertical"
+            android:layout_gravity="bottom"
+            android:background="@android:color/darker_gray">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:id="@+id/fab"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="30dp"
+                android:src="@mipmap/ic_sub_add"
+                android:scaleType="centerCrop"
+                app:maxImageSize="250dp" />
+
+            <com.example.resub.CustomBottomNavigation
+                android:id="@+id/custom_bottom_nav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@android:color/black"
+                app:itemTextColor="@android:color/white"
+                app:labelVisibilityMode="labeled" />
+        </RelativeLayout>
+
+    </LinearLayout>
     <!-- MAIN 끝 -->
-
 </LinearLayout>
+
+

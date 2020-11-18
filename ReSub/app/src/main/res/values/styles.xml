@@ -14,14 +14,14 @@
     <!-- FONT Bold Style -->
     <style name="TextAppearance.AppCompat.Bold">
         <item name="android:textColor">@android:color/black</item>
-        <item name="android:textSize">27sp</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:fontFamily">@font/font</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <!-- FONT Bold Style -->
     <style name="TextAppearance.AppCompat.Normal" parent="TextAppearance.AppCompat.Bold">
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">17sp</item>
         <item name="android:textStyle">normal</item>
     </style>
 
