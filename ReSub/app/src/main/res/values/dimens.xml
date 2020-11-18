@@ -9,5 +9,16 @@
 
     <!-- 컨텐츠 기본 마진 30dp -->
     <dimen name="basic_margin_contents">35dp</dimen>
+
+    <!-- 메인 높이 -->
+    <dimen name="main_body_height">420dp</dimen>
+
+    <!-- 메인 페이저 -->
+    <dimen name="main_viewpager_height">200dp</dimen>
+    <dimen name="main_viewpager_marginTop">55dp</dimen>
+
+
+    <dimen name="viewpager_next_item_visible">26dp</dimen>
+    <dimen name="viewpager_current_item_horizontal_margin">42dp</dimen>
     
 </resources>

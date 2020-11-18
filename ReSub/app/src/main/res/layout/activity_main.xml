@@ -66,14 +66,16 @@
         android:orientation="horizontal">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="400dp"
+            android:layout_height="@dimen/main_body_height"
             android:orientation="vertical"
             android:layout_gravity="bottom"
-            android:background="@android:color/darker_gray">
+            android:background="@drawable/shape_top_radius">
 
-            <androidx.recyclerview.widget.RecyclerView
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/apps_pager"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="@dimen/main_viewpager_height"
+                android:layout_marginTop="@dimen/main_viewpager_marginTop"/>
 
             <ImageView
                 android:id="@+id/fab"
@@ -91,7 +93,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:background="@android:color/black"
                 app:itemTextColor="@android:color/white"
                 app:labelVisibilityMode="labeled" />
         </RelativeLayout>

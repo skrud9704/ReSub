@@ -28,11 +28,17 @@ class AppVO {
     @SerializedName("app_discount")  // 변경금지
     var app_discount = -1
 
-    constructor(app_package : String, app_label : String, app_free : Int, app_discount : Int): this(){
+    // 할인기한 - 0 : 없음, 1 : 있음
+    @ColumnInfo(name="app_color")
+    @SerializedName("app_color")  // 변경금지
+    var app_color = ""
+
+    constructor(app_package : String, app_label : String, app_free : Int, app_discount : Int, app_color : String): this(){
         this.app_package = app_package
         this.app_label = app_label
         this.app_free = app_free
         this.app_discount = app_discount
+        this.app_color = app_color
     }
 
 
