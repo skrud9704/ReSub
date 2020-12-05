@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.detail.DetailActivity"
+    android:orientation="vertical">
+
+    <!-- HEAD 시작 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/basic_margin_title">
+        <!-- LOGO 시작 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            style="@style/TextAppearance.AppCompat.Bold"
+            android:textSize="27sp"/>
+        <!-- LOGO 끝 -->
+        <!-- SIDE MENU 시작-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/btn_menu"
+                android:layout_width="@dimen/icon_size_menu"
+                android:layout_height="@dimen/icon_size_menu"
+                android:src="@mipmap/ic_menu"
+                android:layout_gravity="end"/>
+        </LinearLayout>
+        <!-- SIDE MENU 끝-->
+    </LinearLayout>
+    <!-- HEAD 끝 -->
+
+    <!-- BODY 시작 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/detail_app_icon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/detail_app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Netflix"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/detail_app_free_period"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="무료체험 유/무 (기간)"
+            android:layout_gravity="center"/>
+        <TextView
+            android:id="@+id/detail_app_discount_period"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="최초할인 유/무 (기간)"
+            android:layout_gravity="center"/>
+        <TextView
+            android:id="@+id/detail_app_multi_device"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="다중 디바이스 지원 유/무 (대수)"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="플랜 리스트"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/detail_plan_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="나의 구독에 추가하기"/>
+    </RelativeLayout>
+
+
+</LinearLayout>

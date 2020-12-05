@@ -1,6 +1,7 @@
 package com.example.resub.view.main
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
@@ -14,6 +15,9 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.resub.R
 import com.example.resub.model.AppVO
+import com.example.resub.util.AppConstants
+import com.example.resub.view.detail.DetailActivity
+import com.example.resub.view.register.RegisterActivity
 import kotlinx.android.synthetic.main.recycler_list_item_main.view.*
 
 class MainAdapter(private val context: Context, private var data : List<AppVO>, private var icon : ArrayList<Drawable>)
@@ -44,9 +48,9 @@ class MainAdapter(private val context: Context, private var data : List<AppVO>, 
 
             holder.content.visibility = View.GONE
             holder.no_content.visibility = View.VISIBLE
-            holder.no_content.setOnClickListener {
+            /*holder.no_content.setOnClickListener {
                 Toast.makeText(context,"추가",Toast.LENGTH_SHORT).show()
-            }
+            }*/
         }
 
     }
@@ -57,6 +61,19 @@ class MainAdapter(private val context: Context, private var data : List<AppVO>, 
         val card : CardView = itemView.slide_item_card
         val content : LinearLayout = itemView.slide_item_content
         val no_content : LinearLayout = itemView.slide_item_no_content
+
+        init{
+            content.setOnClickListener {
+                val intent = Intent(context,DetailActivity::class.java)
+                intent.putExtra(AppConstants.INTENT_EXTRA_APPVO,data[adapterPosition])
+                context.startActivity(intent)
+            }
+
+            no_content.setOnClickListener {
+                val intent = Intent(context, RegisterActivity::class.java)
+                context.startActivity(intent)
+            }
+        }
 
     }
 
