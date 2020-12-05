@@ -5,4 +5,17 @@
     <string name="main_this_month_cost">이 달의 구독 결제 금액</string>
     <string name="main_won">원</string>
 
+    <!-- Detail -->
+    <string name="detail_name_foo">Netflix</string>
+    <string name="detail_free_foo">무료체험 유/무 (기간)</string>
+    <string name="detail_discount_foo">무료체험 유/무 (기간)</string>
+    <string name="detail_multi_foo">다중 디바이스 지원 유/무 (대수)</string>
+    <string name="detail_btn_add">나의 구독에 추가</string>
+    <string name="detail_plan_name">플랜 이름</string>
+    <string name="detail_plan_benefit_foo">혜택 주저리 주저리</string>
+    <string name="detail_plan_charge_foo">18,000</string>
+    <string name="detail_plan_slash">" / "</string>
+    <string name="detail_plan_unit_foo">1 month</string>
+
+
 </resources>

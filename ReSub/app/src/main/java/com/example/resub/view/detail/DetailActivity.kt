@@ -8,12 +8,19 @@ import android.util.Log
 import android.widget.Toast
 import com.example.resub.R
 import com.example.resub.model.AppVO
+import com.example.resub.model.PlanVO
+import com.example.resub.network.RetrofitClient
+import com.example.resub.network.RetrofitService
 import com.example.resub.util.AppConstants
 import kotlinx.android.synthetic.main.activity_detail.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class DetailActivity : AppCompatActivity() {
     private lateinit var appVO : AppVO
+    private val planList : ArrayList<PlanVO> = arrayListOf()
     private val TAG = this::class.java.simpleName
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +28,7 @@ class DetailActivity : AppCompatActivity() {
 
         getData()
         setView()
+        setPlanList()
     }
 
     private fun getData(){
@@ -46,10 +54,32 @@ class DetailActivity : AppCompatActivity() {
         // 앱 이름
         detail_app_name.text = appVO.app_label
         // 앱 무료체험
-        detail_app_free_period.text = if(appVO.app_free==1) "무료체험 유" else "무료체험 무"
+        detail_app_free_period.text = if(appVO.app_free==1) "무료체험 O" else ""
         // 앱 첫 할인
-        detail_app_discount_period.text = if(appVO.app_discount==1) "첫 할인 유" else "첫 할인 무"
+        detail_app_discount_period.text = if(appVO.app_discount==1) " / 첫 할인 O" else ""
         // 다중디바이스 지원
-        detail_app_multi_device.text = if(appVO.app_multidevice==1) "다중 디바이스지원 유" else "다중 디바이스지원 무"
+        detail_app_multi_device.text = if(appVO.app_multidevice==1) " / 다중 디바이스지원 O" else ""
+
+    }
+
+    private fun setPlanList(){
+        val retrofitClient = RetrofitClient.getInstance()
+        val retrofitService = retrofitClient.create(RetrofitService::class.java)
+        retrofitService.loadAppPlans(appVO.app_package).enqueue(object : Callback<ArrayList<PlanVO>>{
+            override fun onFailure(call: Call<ArrayList<PlanVO>>, t: Throwable) {
+                Log.d(TAG,"실패 $t")
+            }
+
+            override fun onResponse(call: Call<ArrayList<PlanVO>>, response: Response<ArrayList<PlanVO>>) {
+                Log.d(TAG,"플랜 리스트 가져오기 성공")
+
+                for(plan in response.body()!!){
+                    planList.add(plan.getFullPeriod())
+                }
+                // 플랜 리스트
+                detail_plan_list.adapter = PlanAdapter(applicationContext, planList)
+            }
+
+        })
     }
 }

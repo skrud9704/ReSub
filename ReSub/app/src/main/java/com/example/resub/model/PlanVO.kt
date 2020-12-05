@@ -19,20 +19,21 @@ class PlanVO {
     constructor(name : String, charge : String, period : String, benefit : String) : this() {
         this.plan_name = name
         this.plan_charge = charge
-        this.plan_period = getFullPeriod(period)
+        this.plan_period = period
         this.plan_benefit = benefit
     }
 
-    private fun getFullPeriod(period: String) : String{
-        val changedUnit = when(period.last()){
+    fun getFullPeriod() : PlanVO{
+        val changedUnit = when(this.plan_period.last()){
             'm' -> "month"
             'w' -> "week"
             'd' -> "day"
             'y' -> "year"
-            else -> period.last().toString()
+            else -> this.plan_period.last().toString()
         }
+        this.plan_period = this.plan_period.substring(0,this.plan_period.length-1).plus(changedUnit)
 
-        return period.substring(0,period.length-2).plus(changedUnit)
+        return this
     }
 
 

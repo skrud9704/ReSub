@@ -10,6 +10,11 @@
     <!-- 컨텐츠 기본 마진 30dp -->
     <dimen name="basic_margin_contents">35dp</dimen>
 
+    <!-- 요소간 기본 마진 10dp -->
+    <dimen name="basic_margin_element">10dp</dimen>
+    <!-- 요소간 기본 마진/2 5dp -->
+    <dimen name="basic_margin_element_half">5dp</dimen>
+
     <!-- 메인 높이 -->
     <dimen name="main_body_height">420dp</dimen>
 
@@ -17,6 +22,8 @@
     <dimen name="main_viewpager_height">200dp</dimen>
     <dimen name="main_viewpager_marginTop">55dp</dimen>
 
+    <!-- 디테일 아이콘 -->
+    <dimen name="icon_size_app">70dp</dimen>
 
     <dimen name="viewpager_next_item_visible">26dp</dimen>
     <dimen name="viewpager_current_item_horizontal_margin">42dp</dimen>

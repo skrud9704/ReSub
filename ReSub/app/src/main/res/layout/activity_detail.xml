@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,6 +10,7 @@
 
     <!-- HEAD 시작 -->
     <LinearLayout
+        android:id="@+id/detail_head"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -42,60 +44,70 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_below="@+id/detail_head">
         <ImageView
             android:id="@+id/detail_app_icon"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="@dimen/icon_size_app"
+            android:layout_height="@dimen/icon_size_app"
             android:layout_gravity="center"/>
-
         <TextView
             android:id="@+id/detail_app_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Netflix"
-            android:layout_gravity="center"/>
-
-        <TextView
-            android:id="@+id/detail_app_free_period"
+            android:text="@string/detail_name_foo"
+            android:layout_gravity="center"
+            style="@style/TextAppearance.AppCompat.Bold"/>
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="무료체험 유/무 (기간)"
-            android:layout_gravity="center"/>
-        <TextView
-            android:id="@+id/detail_app_discount_period"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="최초할인 유/무 (기간)"
-            android:layout_gravity="center"/>
-        <TextView
-            android:id="@+id/detail_app_multi_device"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="다중 디바이스 지원 유/무 (대수)"
-            android:layout_gravity="center"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="플랜 리스트"/>
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+            <TextView
+                android:id="@+id/detail_app_free_period"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/detail_free_foo"
+                android:fontFamily="@font/font"
+                android:textSize="10sp"/>
+            <TextView
+                android:id="@+id/detail_app_discount_period"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/detail_discount_foo"
+                android:fontFamily="@font/font"
+                android:textSize="10sp"/>
+            <TextView
+                android:id="@+id/detail_app_multi_device"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/detail_multi_foo"
+                android:fontFamily="@font/font"
+                android:textSize="10sp"/>
+        </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/detail_plan_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            android:layout_height="390dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_marginTop="@dimen/basic_margin_element"
+            android:layout_marginStart="@dimen/basic_margin_element_half"
+            android:layout_marginEnd="@dimen/basic_margin_element_half"/>
 
     </LinearLayout>
-    <RelativeLayout
+    <!-- BODY 끝 -->
+    <!-- BODY 버튼 시작 -->
+    <Button
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:text="나의 구독에 추가하기"/>
-    </RelativeLayout>
+        android:layout_height="wrap_content"
+        android:text="@string/detail_btn_add"
+        android:backgroundTint="@color/colorBlack"
+        android:textColor="@color/colorWhite"
+        style="@style/TextAppearance.AppCompat.Normal"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:textSize="15sp"/>
+    <!-- BODY 버튼 끝 -->
 
-
-</LinearLayout>
+</RelativeLayout>
