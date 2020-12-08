@@ -19,6 +19,8 @@ interface AppDAO : RoomDAO<AppVO> {
     @Query("SELECT * FROM UserApp")
     fun getAppList() : List<AppVO>
 
+    @Query("SELECT * FROM UserApp WHERE app_package=:package_name")
+    fun getApp(package_name : String) : AppVO
 }
 
 @Dao
