@@ -28,13 +28,16 @@ import retrofit2.Response
 import java.util.*
 
 
-
-class RegisterActivity : AppCompatActivity() {
+class RegisterActivity : AppCompatActivity(){
     private lateinit var appVO : AppVO
     private val planList : ArrayList<PlanVO> = arrayListOf()
     private val TAG = this::class.java.simpleName
     private val calendar = Calendar.getInstance()
     private var currentMonth = 0
+    private lateinit var onPlanItemClick : OnPlanItemClick
+
+    private var selectedPlan : PlanVO? = null
+    private var selectedDate: Date? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +47,31 @@ class RegisterActivity : AppCompatActivity() {
         setView()
         setPlanList()
         setCalender()
+
+        onPlanItemClick = object : OnPlanItemClick{
+            // 인터페이스 onPlanItemClick의 메서드
+            override fun onClick(planVO: PlanVO) {
+                selectedPlan = planVO
+                selected_plan.text = planVO.plan_name
+                if(selectedDate!=null){
+                    register_result.visibility = View.VISIBLE
+                    setResultView()
+                }
+            }
+
+        }
+
+        // 나의 구독에 추가.
+        register_btn.setOnClickListener {
+            if(selectedDate!=null && selectedPlan!=null){
+                Toast.makeText(this,"추가됐습니다!",Toast.LENGTH_SHORT).show()
+            }
+            else
+                Toast.makeText(this,"플랜과 날짜를 모두 선택해주세요.",Toast.LENGTH_SHORT).show()
+        }
     }
+
+
 
     private fun getData(){
         if(intent.hasExtra(AppConstants.INTENT_EXTRA_APPVO)){
@@ -55,6 +82,32 @@ class RegisterActivity : AppCompatActivity() {
             finish()
         }
 
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun setResultView(){
+
+        register_btn.setBackgroundResource(R.drawable.shape_radius_purple)
+
+        val tmpCalendar = Calendar.getInstance()
+        tmpCalendar.time = selectedDate
+        if(appVO.app_free==0) {
+            register_free.visibility = View.GONE
+        }else{
+            register_free_period.text = "${DateUtils.getMonthNumber(tmpCalendar.time)}/${DateUtils.getDayNumber(tmpCalendar.time)}"
+            tmpCalendar.add(Calendar.MONTH,1)
+        }
+
+        if(appVO.app_discount==0) {
+            register_discount.visibility = View.GONE
+        }else{
+            register_discount_period.text = "${DateUtils.getMonthNumber(tmpCalendar.time)}/${DateUtils.getDayNumber(selectedDate!!)}"
+            tmpCalendar.add(Calendar.MONTH,1)
+            register_discount_charge.text = "3,000원"
+        }
+
+        register_normal_period.text = "${DateUtils.getMonthNumber(tmpCalendar.time)}/${DateUtils.getDayNumber(tmpCalendar.time)}~"
+        register_normal_charge.text = "${selectedPlan!!.plan_charge}원"
     }
 
     private fun setView(){
@@ -88,7 +141,7 @@ class RegisterActivity : AppCompatActivity() {
                     planList.add(plan.getFullPeriod())
                 }
                 // 플랜 리스트
-                register_plan_list.adapter = PlanAdapter(applicationContext,planList)
+                register_plan_list.adapter = PlanAdapter(applicationContext,planList,onPlanItemClick)
             }
 
         })
@@ -161,8 +214,13 @@ class RegisterActivity : AppCompatActivity() {
             CalendarChangesObserver {
             // you can override more methods, in this example we need only this one
             override fun whenSelectionChanged(isSelected: Boolean, position: Int, date: Date) {
-                tvYear.text = "${DateUtils.getYear(date)}년 "
-                tvMonth.text = "${DateUtils.getMonthNumber(date)}월 "
+                //tvYear.text = "${DateUtils.getYear(date)}년 "
+                //tvMonth.text = "${DateUtils.getMonthNumber(date)}월 "
+                selectedDate = date
+                if (selectedPlan != null){
+                    register_result.visibility = View.VISIBLE
+                    setResultView()
+                }
                 super.whenSelectionChanged(isSelected, position, date)
             }
 
@@ -243,5 +301,7 @@ class RegisterActivity : AppCompatActivity() {
         calendar.add(Calendar.DATE, -1)
         return list
     }
+
+
 
 }

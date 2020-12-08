@@ -153,11 +153,13 @@
                 <!-- 날짜등록 끝 -->
 
                 <LinearLayout
+                    android:id="@+id/register_result"
                     android:layout_width="match_parent"
                     android:layout_height="600dp"
                     android:orientation="vertical"
                     android:layout_gravity="bottom"
-                    android:background="@drawable/shape_top_radius_white">
+                    android:background="@drawable/shape_top_radius_white"
+                    android:visibility="gone">
                     <TextView
                         android:id="@+id/tv_next_charge"
                         android:layout_width="match_parent"
@@ -169,25 +171,25 @@
                         android:layout_width="match_parent"
                         android:layout_height="160dp"
                         android:orientation="vertical"
-                        android:layout_below="@+id/tv_next_charge"
                         android:layout_marginStart="@dimen/basic_margin_contents"
                         android:layout_marginEnd="@dimen/basic_margin_contents">
 
                         <LinearLayout
+                            android:id="@+id/register_free"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
                             android:orientation="horizontal">
                             <View
-                                android:id="@+id/register_free_period"
                                 android:layout_width="10dp"
                                 android:layout_height="match_parent"
                                 android:background="@color/lightPurple"/>
                             <TextView
+                                android:id="@+id/register_free_period"
                                 android:layout_width="100dp"
                                 android:layout_height="wrap_content"
                                 android:text="12/08 "
-                                android:layout_marginStart="@dimen/basic_margin_title"/>
+                                android:layout_marginStart="@dimen/basic_margin_title" />
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
@@ -196,9 +198,11 @@
                                 android:gravity="center"
                                 android:background="@color/lightPurple"
                                 android:layout_marginTop="@dimen/basic_margin_element_half"
-                                android:layout_marginBottom="@dimen/basic_margin_element_half"/>
+                                android:layout_marginBottom="@dimen/basic_margin_element_half"
+                                />
                         </LinearLayout>
                         <LinearLayout
+                            android:id="@+id/register_discount"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -208,11 +212,13 @@
                                 android:layout_height="match_parent"
                                 android:background="@color/midPurple"/>
                             <TextView
+                                android:id="@+id/register_discount_period"
                                 android:layout_width="100dp"
                                 android:layout_height="wrap_content"
                                 android:text="12/20 "
                                 android:layout_marginStart="@dimen/basic_margin_title"/>
                             <TextView
+                                android:id="@+id/register_discount_charge"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:text="할인 기간"
@@ -220,9 +226,11 @@
                                 android:gravity="center"
                                 android:background="@color/midPurple"
                                 android:layout_marginTop="@dimen/basic_margin_element_half"
-                                android:layout_marginBottom="@dimen/basic_margin_element_half"/>
+                                android:layout_marginBottom="@dimen/basic_margin_element_half"
+                                />
                         </LinearLayout>
                         <LinearLayout
+                            android:id="@+id/register_normal"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -232,11 +240,13 @@
                                 android:layout_height="match_parent"
                                 android:background="@color/purple"/>
                             <TextView
+                                android:id="@+id/register_normal_period"
                                 android:layout_width="100dp"
                                 android:layout_height="wrap_content"
                                 android:text="1/08 ~ "
                                 android:layout_marginStart="@dimen/basic_margin_title"/>
                             <TextView
+                                android:id="@+id/register_normal_charge"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:text="원가 결제"
@@ -244,7 +254,8 @@
                                 android:gravity="center"
                                 android:background="@color/purple"
                                 android:layout_marginTop="@dimen/basic_margin_element_half"
-                                android:layout_marginBottom="@dimen/basic_margin_element_half"/>
+                                android:layout_marginBottom="@dimen/basic_margin_element_half"
+                                />
                         </LinearLayout>
 
 
@@ -277,7 +288,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/basic_margin_element"
-            android:text="일반"
             android:textColor="@color/colorWhite"
             style="@style/TextAppearance.AppCompat.Bold"/>
         <Button
@@ -290,7 +300,7 @@
             android:textColor="@color/colorWhite"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
-            android:background="@drawable/shape_radius_purple"
+            android:background="@drawable/shape_radius_grey"
             android:layout_margin="@dimen/basic_margin_element"
             android:text="추가하기"/>
     </RelativeLayout>

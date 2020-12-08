@@ -11,8 +11,9 @@ import com.example.resub.R
 import com.example.resub.model.PlanVO
 import kotlinx.android.synthetic.main.recycler_list_item_plan_horizontal.view.*
 
-class PlanAdapter(private val context: Context, private val data: ArrayList<PlanVO>)
+class PlanAdapter(private val context: Context, private val data: ArrayList<PlanVO>, private val mPlanClickListener : OnPlanItemClick)
     : RecyclerView.Adapter<PlanAdapter.ViewHolder>(){
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlanAdapter.ViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.recycler_list_item_plan_horizontal,parent,false)
         return ViewHolder(view)
@@ -38,6 +39,8 @@ class PlanAdapter(private val context: Context, private val data: ArrayList<Plan
             plan_card.setOnClickListener {
                 plan_card.setBackgroundColor(context.getColor(R.color.lightPurple))
                 plan_card.radius = 8f
+
+                mPlanClickListener.onClick(data[adapterPosition])
             }
         }
 
