@@ -99,6 +99,7 @@
     <!-- BODY 끝 -->
     <!-- BODY 버튼 시작 -->
     <Button
+        android:id="@+id/btn_goto_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/detail_btn_add"

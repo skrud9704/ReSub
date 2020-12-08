@@ -1,5 +1,6 @@
 package com.example.resub.view.detail
 
+import android.content.Intent
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +13,7 @@ import com.example.resub.model.PlanVO
 import com.example.resub.network.RetrofitClient
 import com.example.resub.network.RetrofitService
 import com.example.resub.util.AppConstants
+import com.example.resub.view.register.RegisterActivity
 import kotlinx.android.synthetic.main.activity_detail.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -29,6 +31,10 @@ class DetailActivity : AppCompatActivity() {
         getData()
         setView()
         setPlanList()
+
+        btn_goto_register.setOnClickListener {
+            startActivity(Intent(this,RegisterActivity::class.java))
+        }
     }
 
     private fun getData(){

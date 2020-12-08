@@ -17,5 +17,9 @@
     <string name="detail_plan_slash">" / "</string>
     <string name="detail_plan_unit_foo">1 month</string>
 
+    <!-- Register -->
+    <string name="register_name_foo">Netflix</string>
+    <string name="register_category_foo">동영상 스트리밍 / VOD</string>
+
 
 </resources>

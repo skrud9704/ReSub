@@ -59,7 +59,7 @@
             android:text="@string/main_won"/>
     </LinearLayout>
     <!-- 금액 부분 끝 -->
-    <!--  -->
+    <!-- 어플 부분 시작-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -99,6 +99,7 @@
         </RelativeLayout>
 
     </LinearLayout>
+    <!-- 어플 부분 끝-->
     <!-- MAIN 끝 -->
 </LinearLayout>
 
