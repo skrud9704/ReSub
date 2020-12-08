@@ -9,7 +9,7 @@ import com.example.resub.model.AppVO
 import com.example.resub.model.UserPlanVO
 
 @Database(version = 1, entities = [AppVO::class, UserPlanVO::class], exportSchema = false)
-//@TypeConverters(Converter::class)
+@TypeConverters(Converter::class)
 abstract class RoomDB : RoomDatabase(){
 
     abstract fun appDAO() : AppDAO

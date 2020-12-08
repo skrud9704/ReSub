@@ -33,9 +33,7 @@ class HomeFragment : Fragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_home, null)
-        // 처리
-        return view
+        return inflater.inflate(R.layout.fragment_home, null)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -74,7 +72,7 @@ class HomeFragment : Fragment(){
     private fun setRecyclerList(){
         viewPager2 = apps_pager
         // MyRecyclerViewAdapter is an standard RecyclerView.Adapter :)
-        viewPager2.adapter = MainAdapter(activity!!.applicationContext,userApps,icons)
+        viewPager2.adapter = HomeAdapter(activity!!.applicationContext,userApps,icons)
 
         // You need to retain one page on each side so that the next and previous items are visible
         viewPager2.offscreenPageLimit = 1

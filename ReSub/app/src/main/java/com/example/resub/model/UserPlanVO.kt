@@ -17,9 +17,13 @@ class UserPlanVO {
     @ColumnInfo(name="register_date")
     var register_date : String = ""
 
-    constructor(id : Int, date: Date){
+    @ColumnInfo(name="plan_data")
+    var planVO : PlanVO? = null
+
+    constructor(id : Int, date: Date, planVO: PlanVO){
         this.plan_id = id
         setDate(date)
+        this.planVO = planVO
     }
 
     fun setDate(date : Date){

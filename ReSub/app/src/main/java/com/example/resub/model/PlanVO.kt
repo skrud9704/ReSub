@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 class PlanVO {
     constructor()
 
-    @SerializedName("id")  // 변경금지
+    @SerializedName("plan_id")  // 변경금지
     var plan_id : Int = -1
 
     @SerializedName("plan_name")  // 변경금지
@@ -20,12 +20,16 @@ class PlanVO {
     @SerializedName("plan_benefit")  // 변경금지
     var plan_benefit : String = ""
 
-    constructor(id:Int, name : String, charge : String, period : String, benefit : String) : this() {
+    @SerializedName("plan_app_package")  // 변경금지
+    var plan_app_package : String = ""
+
+    constructor(id:Int, name : String, charge : String, period : String, benefit : String, plan_app_package:String) : this() {
         this.plan_id = id
         this.plan_name = name
         this.plan_charge = charge
         this.plan_period = period
         this.plan_benefit = benefit
+        this.plan_app_package = plan_app_package
     }
 
     fun getFullPeriod() : PlanVO{

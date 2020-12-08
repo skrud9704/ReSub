@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.resub.R
@@ -18,14 +17,14 @@ import com.example.resub.model.AppVO
 import com.example.resub.util.AppConstants
 import com.example.resub.view.detail.DetailActivity
 import com.example.resub.view.register.RegisterActivity
-import kotlinx.android.synthetic.main.recycler_list_item_main.view.*
+import kotlinx.android.synthetic.main.recycler_list_item_home.view.*
 
-class MainAdapter(private val context: Context, private var data : List<AppVO>, private var icon : ArrayList<Drawable>)
-    : RecyclerView.Adapter<MainAdapter.ViewHolder>(){
+class HomeAdapter(private val context: Context, private var data : List<AppVO>, private var icon : ArrayList<Drawable>)
+    : RecyclerView.Adapter<HomeAdapter.ViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view= LayoutInflater.from(context)
-            .inflate(R.layout.recycler_list_item_main, parent, false)
+            .inflate(R.layout.recycler_list_item_home, parent, false)
         return ViewHolder(view)
     }
 

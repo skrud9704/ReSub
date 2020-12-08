@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 어플 부분 시작-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    tools:context="view.main.UserFragment">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_body_height"
+        android:orientation="vertical"
+        android:layout_gravity="bottom"
+        android:background="@drawable/shape_top_radius">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/user_plan_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="@dimen/basic_margin_element"
+            android:layout_marginEnd="@dimen/basic_margin_element"/>
+
+    </RelativeLayout>
+
+</FrameLayout>
+    <!-- 어플 부분 끝-->
