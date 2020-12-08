@@ -39,125 +39,260 @@
     </LinearLayout>
     <!-- HEAD 끝 -->
 
-    <!-- BODY1 시작 -->
-    <LinearLayout
-        android:id="@+id/register_body1"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_below="@+id/register_head">
-        <ImageView
-            android:id="@+id/detail_app_icon"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="@dimen/basic_margin_title"/>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="center"
-            android:layout_marginStart="@dimen/basic_margin_element">
-            <TextView
-                android:id="@+id/register_app_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/detail_name_foo"
-                style="@style/TextAppearance.AppCompat.Bold"
-                android:textSize="17sp"/>
-            <TextView
-                android:id="@+id/register_app_category"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/register_category_foo"
-                style="@style/TextAppearance.AppCompat.Normal"
-                android:textSize="15sp"/>
-        </LinearLayout>
-    </LinearLayout>
-    <!-- BODY1 끝 -->
-
-    <!-- BODY2 시작 -->
-    <LinearLayout
-        android:id="@+id/register_body2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_below="@+id/register_body1"
-        android:layout_marginTop="@dimen/basic_margin_element">
-
-        <!-- 플랜 리스트 시작 -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/register_plan_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginStart="@dimen/basic_margin_element"
-            android:layout_marginEnd="@dimen/basic_margin_element"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
-        <!-- 플랜 리스트 끝 -->
-        <!-- 날짜등록 시작 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="@dimen/basic_margin_element_half"
-            android:layout_marginTop="@dimen/basic_margin_element"
-            android:layout_marginBottom="@dimen/basic_margin_element">
+            android:orientation="vertical">
+            <!-- BODY1 시작 -->
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:id="@+id/register_body1"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_gravity="center">
-                <Button
-                    android:id="@+id/btnLeft"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:background="@drawable/ic_arrow_left_24dp" />
-                <TextView
-                    android:id="@+id/tvYear"
+                android:layout_marginTop="@dimen/basic_margin_element_half">
+                <ImageView
+                    android:id="@+id/detail_app_icon"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/basic_margin_title"/>
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/grey"
-                    style="@style/TextAppearance.AppCompat.Bold"
-                    android:textSize="15sp"
-                    android:layout_gravity="center"/>
-                <TextView
-                    android:id="@+id/tvMonth"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/lightGrey"
-                    style="@style/TextAppearance.AppCompat.Bold"
-                    android:textSize="15sp"
-                    android:layout_gravity="center"/>
-                <Button
-                    android:id="@+id/btnRight"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:background="@drawable/ic_arrow_right_24dp" />
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/basic_margin_element">
+                    <TextView
+                        android:id="@+id/register_app_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/detail_name_foo"
+                        style="@style/TextAppearance.AppCompat.Bold"
+                        android:textSize="17sp"/>
+                    <TextView
+                        android:id="@+id/register_app_category"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/register_category_foo"
+                        style="@style/TextAppearance.AppCompat.Normal"
+                        android:textSize="15sp"/>
+                </LinearLayout>
             </LinearLayout>
-            <com.michalsvec.singlerowcalendar.calendar.SingleRowCalendar
-                android:id="@+id/main_single_row_calendar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:deselection="false"
-                app:longPress="false"
-                app:multiSelection="false"/>
-        </LinearLayout>
-        <!-- 날짜등록 끝 -->
+            <!-- BODY1 끝 -->
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_gravity="bottom"
-            android:background="@drawable/shape_top_radius_white">
-            <TextView
+            <!-- BODY2 시작 -->
+            <LinearLayout
+                android:id="@+id/register_body2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="다음 청구"
-                style="@style/TextAppearance.AppCompat.Bold"/>
-        </RelativeLayout>
-    </LinearLayout>
-    <!-- BODY2 끝 -->
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/basic_margin_element">
+
+                <!-- 플랜 리스트 시작 -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/register_plan_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="@dimen/basic_margin_element"
+                    android:layout_marginEnd="@dimen/basic_margin_element"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+                <!-- 플랜 리스트 끝 -->
+                <!-- 날짜등록 시작 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/basic_margin_element_half"
+                    android:layout_marginTop="@dimen/basic_margin_element"
+                    android:layout_marginBottom="@dimen/basic_margin_element">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center">
+                        <Button
+                            android:id="@+id/btnLeft"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:background="@drawable/ic_arrow_left_24dp" />
+                        <TextView
+                            android:id="@+id/tvYear"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/grey"
+                            style="@style/TextAppearance.AppCompat.Bold"
+                            android:textSize="15sp"
+                            android:layout_gravity="center"/>
+                        <TextView
+                            android:id="@+id/tvMonth"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/lightGrey"
+                            style="@style/TextAppearance.AppCompat.Bold"
+                            android:textSize="15sp"
+                            android:layout_gravity="center"/>
+                        <Button
+                            android:id="@+id/btnRight"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:background="@drawable/ic_arrow_right_24dp" />
+                    </LinearLayout>
+                    <com.michalsvec.singlerowcalendar.calendar.SingleRowCalendar
+                        android:id="@+id/main_single_row_calendar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:deselection="false"
+                        app:longPress="false"
+                        app:multiSelection="false"/>
+                </LinearLayout>
+                <!-- 날짜등록 끝 -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="600dp"
+                    android:orientation="vertical"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/shape_top_radius_white">
+                    <TextView
+                        android:id="@+id/tv_next_charge"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="다음 청구"
+                        style="@style/TextAppearance.AppCompat.Bold"
+                        android:layout_margin="@dimen/basic_margin_title"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="160dp"
+                        android:orientation="vertical"
+                        android:layout_below="@+id/tv_next_charge"
+                        android:layout_marginStart="@dimen/basic_margin_contents"
+                        android:layout_marginEnd="@dimen/basic_margin_contents">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+                            <View
+                                android:id="@+id/register_free_period"
+                                android:layout_width="10dp"
+                                android:layout_height="match_parent"
+                                android:background="@color/lightPurple"/>
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:text="12/08 "
+                                android:layout_marginStart="@dimen/basic_margin_title"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="무료 체험 기간"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:background="@color/lightPurple"
+                                android:layout_marginTop="@dimen/basic_margin_element_half"
+                                android:layout_marginBottom="@dimen/basic_margin_element_half"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+                            <View
+                                android:layout_width="10dp"
+                                android:layout_height="match_parent"
+                                android:background="@color/midPurple"/>
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:text="12/20 "
+                                android:layout_marginStart="@dimen/basic_margin_title"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="할인 기간"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:background="@color/midPurple"
+                                android:layout_marginTop="@dimen/basic_margin_element_half"
+                                android:layout_marginBottom="@dimen/basic_margin_element_half"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+                            <View
+                                android:layout_width="10dp"
+                                android:layout_height="match_parent"
+                                android:background="@color/purple"/>
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:text="1/08 ~ "
+                                android:layout_marginStart="@dimen/basic_margin_title"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="원가 결제"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:background="@color/purple"
+                                android:layout_marginTop="@dimen/basic_margin_element_half"
+                                android:layout_marginBottom="@dimen/basic_margin_element_half"/>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/basic_margin_title"
+                        android:text="@string/register_warn"
+                        android:textSize="12sp"/>
+
+                </LinearLayout>
+            </LinearLayout>
+            <!-- BODY2 끝 -->
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <RelativeLayout
+        android:id="@+id/btn_goto_register"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#C7000000"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/selected_plan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/basic_margin_element"
+            android:text="일반"
+            android:textColor="@color/colorWhite"
+            style="@style/TextAppearance.AppCompat.Bold"/>
+        <Button
+            android:id="@+id/register_btn"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.AppCompat.Bold"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/shape_radius_purple"
+            android:layout_margin="@dimen/basic_margin_element"
+            android:text="추가하기"/>
+    </RelativeLayout>
 
 </RelativeLayout>
