@@ -1,9 +1,6 @@
 package com.example.resub.database
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.example.resub.model.AppVO
 import com.example.resub.model.UserPlanVO
 
@@ -32,5 +29,8 @@ interface UserPlanDAO : RoomDAO<UserPlanVO> {
 
     @Query("SELECT * FROM UserPlan")
     fun getPlanList() : List<UserPlanVO>
+
+    @Query("UPDATE UserPlan SET plan_alarm=:alarm")
+    fun updatePlanAlarm(alarm : Boolean) : Long
 
 }

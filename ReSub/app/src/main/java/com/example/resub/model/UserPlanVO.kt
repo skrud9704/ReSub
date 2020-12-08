@@ -20,10 +20,14 @@ class UserPlanVO {
     @ColumnInfo(name="plan_data")
     var planVO : PlanVO? = null
 
+    @ColumnInfo(name="plan_alarm")
+    var alarm : Boolean = false
+
     constructor(id : Int, date: Date, planVO: PlanVO){
         this.plan_id = id
         setDate(date)
         this.planVO = planVO
+        this.alarm = false
     }
 
     fun setDate(date : Date){

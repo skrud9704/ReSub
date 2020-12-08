@@ -9,10 +9,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.ToggleButton
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.resub.R
+import com.example.resub.database.RoomDB
 import com.example.resub.model.UserPlanVO
+import com.suke.widget.SwitchButton
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.recycler_list_item_user.view.*
 
@@ -42,7 +45,12 @@ class UserAdapter(private val context: Context, private var data : List<UserPlan
 
         holder.plan_name.text = data[position].planVO!!.plan_name
         holder.plan_date.text = data[position].register_date
+        holder.plan_alarm.isChecked = data[position].alarm
 
+        holder.plan_alarm.setOnCheckedChangeListener { _, isChecked ->
+            val roomDB = RoomDB.getInstance(context)
+            roomDB.userPlanDAO().updatePlanAlarm(isChecked)
+        }
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
@@ -50,6 +58,7 @@ class UserAdapter(private val context: Context, private var data : List<UserPlan
         val plan_icon : ImageView = itemView.user_plan_app_icon
         val plan_name : TextView = itemView.user_plan_name
         val plan_date : TextView = itemView.user_plan_date
+        val plan_alarm : SwitchButton = itemView.user_plan_toggle
 
     }
 
