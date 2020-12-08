@@ -30,7 +30,7 @@ interface UserPlanDAO : RoomDAO<UserPlanVO> {
     @Query("SELECT * FROM UserPlan")
     fun getPlanList() : List<UserPlanVO>
 
-    @Query("UPDATE UserPlan SET plan_alarm=:alarm")
-    fun updatePlanAlarm(alarm : Boolean) : Long
+    @Query("UPDATE UserPlan SET plan_alarm=:alarm WHERE plan_id=:id")
+    fun updatePlanAlarm(alarm : Boolean, id : Int) : Long
 
 }

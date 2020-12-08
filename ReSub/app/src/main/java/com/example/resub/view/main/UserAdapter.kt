@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import android.widget.ToggleButton
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
@@ -49,7 +50,11 @@ class UserAdapter(private val context: Context, private var data : List<UserPlan
 
         holder.plan_alarm.setOnCheckedChangeListener { _, isChecked ->
             val roomDB = RoomDB.getInstance(context)
-            roomDB.userPlanDAO().updatePlanAlarm(isChecked)
+            roomDB.userPlanDAO().updatePlanAlarm(isChecked,data[position].plan_id)
+            if(isChecked)
+                Toast.makeText(context,"${data[position].planVO!!.plan_name}의 알람이 설정되었습니다.",Toast.LENGTH_SHORT).show()
+            else
+                Toast.makeText(context,"${data[position].planVO!!.plan_name}의 알람이 해제되었습니다.",Toast.LENGTH_SHORT).show()
         }
     }
 
