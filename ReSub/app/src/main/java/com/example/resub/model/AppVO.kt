@@ -39,6 +39,11 @@ class AppVO() : Parcelable{
     @SerializedName("app_color")  // 변경금지
     var app_color = ""
 
+    // 앱 색깔
+    @ColumnInfo(name="app_category")
+    @SerializedName("category")  // 변경금지
+    var app_category = ""
+
     constructor(parcel: Parcel) : this() {
         app_package = parcel.readString()!!
         app_label = parcel.readString()!!
@@ -46,15 +51,17 @@ class AppVO() : Parcelable{
         app_discount = parcel.readInt()
         app_multidevice = parcel.readInt()
         app_color = parcel.readString()!!
+        app_category = parcel.readString()!!
     }
 
-    constructor(app_package : String, app_label : String, app_free : Int, app_discount : Int, app_multidevice : Int, app_color : String): this(){
+    constructor(app_package : String, app_label : String, app_free : Int, app_discount : Int, app_multidevice : Int, app_color : String, app_category : String): this(){
         this.app_package = app_package
         this.app_label = app_label
         this.app_free = app_free
         this.app_discount = app_discount
         this.app_multidevice = app_multidevice
         this.app_color = app_color
+        this.app_category = app_category
     }
 
     // 생성자와 순서를 맞춰줘야해..
@@ -65,6 +72,7 @@ class AppVO() : Parcelable{
         dest.writeInt(app_discount)
         dest.writeInt(app_multidevice)
         dest.writeString(app_color)
+        dest.writeString(app_category)
     }
 
     override fun describeContents(): Int {

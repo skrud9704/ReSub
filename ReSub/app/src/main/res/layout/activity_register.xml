@@ -48,8 +48,8 @@
         android:layout_below="@+id/register_head">
         <ImageView
             android:id="@+id/detail_app_icon"
-            android:layout_width="@dimen/icon_size_app"
-            android:layout_height="@dimen/icon_size_app"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_gravity="center"
             android:layout_marginStart="@dimen/basic_margin_title"/>
         <LinearLayout
@@ -63,13 +63,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/detail_name_foo"
-                style="@style/TextAppearance.AppCompat.Bold"/>
+                style="@style/TextAppearance.AppCompat.Bold"
+                android:textSize="17sp"/>
             <TextView
                 android:id="@+id/register_app_category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/register_category_foo"
-                style="@style/TextAppearance.AppCompat.Normal"/>
+                style="@style/TextAppearance.AppCompat.Normal"
+                android:textSize="15sp"/>
         </LinearLayout>
     </LinearLayout>
     <!-- BODY1 끝 -->
@@ -78,51 +80,83 @@
     <LinearLayout
         android:id="@+id/register_body2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_below="@+id/register_body1"
         android:layout_marginTop="@dimen/basic_margin_element">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center">
-            <Button
-                android:id="@+id/btnLeft"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:background="@drawable/ic_arrow_left_24dp" />
-            <TextView
-                android:id="@+id/tvYear"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/grey"
-                style="@style/TextAppearance.AppCompat.Bold"
-                android:textSize="15sp"
-                android:layout_gravity="center"/>
-            <TextView
-                android:id="@+id/tvMonth"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/lightGrey"
-                style="@style/TextAppearance.AppCompat.Bold"
-                android:textSize="15sp"
-                android:layout_gravity="center"/>
-            <Button
-                android:id="@+id/btnRight"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:background="@drawable/ic_arrow_right_24dp" />
-        </LinearLayout>
-        <com.michalsvec.singlerowcalendar.calendar.SingleRowCalendar
-            android:id="@+id/main_single_row_calendar"
+
+        <!-- 플랜 리스트 시작 -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/register_plan_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:layout_marginStart="@dimen/basic_margin_element"
             android:layout_marginEnd="@dimen/basic_margin_element"
-            app:deselection="false"
-            app:longPress="false"
-            app:multiSelection="false"/>
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+        <!-- 플랜 리스트 끝 -->
+        <!-- 날짜등록 시작 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/basic_margin_element_half"
+            android:layout_marginTop="@dimen/basic_margin_element"
+            android:layout_marginBottom="@dimen/basic_margin_element">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+                <Button
+                    android:id="@+id/btnLeft"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/ic_arrow_left_24dp" />
+                <TextView
+                    android:id="@+id/tvYear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/grey"
+                    style="@style/TextAppearance.AppCompat.Bold"
+                    android:textSize="15sp"
+                    android:layout_gravity="center"/>
+                <TextView
+                    android:id="@+id/tvMonth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/lightGrey"
+                    style="@style/TextAppearance.AppCompat.Bold"
+                    android:textSize="15sp"
+                    android:layout_gravity="center"/>
+                <Button
+                    android:id="@+id/btnRight"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/ic_arrow_right_24dp" />
+            </LinearLayout>
+            <com.michalsvec.singlerowcalendar.calendar.SingleRowCalendar
+                android:id="@+id/main_single_row_calendar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:deselection="false"
+                app:longPress="false"
+                app:multiSelection="false"/>
+        </LinearLayout>
+        <!-- 날짜등록 끝 -->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="bottom"
+            android:background="@drawable/shape_top_radius_white">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="다음 청구"
+                style="@style/TextAppearance.AppCompat.Bold"/>
+        </RelativeLayout>
     </LinearLayout>
     <!-- BODY2 끝 -->
 

@@ -33,7 +33,9 @@ class DetailActivity : AppCompatActivity() {
         setPlanList()
 
         btn_goto_register.setOnClickListener {
-            startActivity(Intent(this,RegisterActivity::class.java))
+            val intent = Intent(this,RegisterActivity::class.java)
+            intent.putExtra(AppConstants.INTENT_EXTRA_APPVO,appVO)
+            startActivity(intent)
         }
     }
 
