@@ -11,7 +11,9 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.resub.R
 import com.example.resub.database.RoomDB
 import com.example.resub.model.AppVO
+import com.example.resub.util.AppConstants
 import com.example.resub.view.TestActivity
+import com.example.resub.view.register.RegisterActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : FragmentActivity() {
@@ -30,6 +32,14 @@ class MainActivity : FragmentActivity() {
         btn_menu.setOnClickListener {
             val nextIntent = Intent(this,TestActivity::class.java)
             startActivity(nextIntent)
+        }
+
+        fab.setOnClickListener {
+            if(viewPager2.currentItem!=userApps.size){
+                val nextIntent = Intent(this,RegisterActivity::class.java)
+                nextIntent.putExtra(AppConstants.INTENT_EXTRA_APPVO,userApps[viewPager2.currentItem])
+                startActivity(nextIntent)
+            }
         }
     }
 

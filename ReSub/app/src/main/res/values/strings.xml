@@ -3,7 +3,7 @@
 
     <!-- MAIN -->
     <string name="main_this_month_cost">이 달의 구독 결제 금액</string>
-    <string name="main_won">원</string>
+    <string name="main_won">0 원</string>
 
     <!-- Detail -->
     <string name="detail_name_foo">Netflix</string>
