@@ -1,6 +1,7 @@
 package com.example.resub.view.register
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.graphics.Color
@@ -10,11 +11,14 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.example.resub.R
+import com.example.resub.database.RoomDB
 import com.example.resub.model.AppVO
 import com.example.resub.model.PlanVO
+import com.example.resub.model.UserPlanVO
 import com.example.resub.network.RetrofitClient
 import com.example.resub.network.RetrofitService
 import com.example.resub.util.AppConstants
+import com.example.resub.view.main.MainActivity
 import com.michalsvec.singlerowcalendar.calendar.CalendarChangesObserver
 import com.michalsvec.singlerowcalendar.calendar.CalendarViewManager
 import com.michalsvec.singlerowcalendar.calendar.SingleRowCalendarAdapter
@@ -64,7 +68,12 @@ class RegisterActivity : AppCompatActivity(){
         // 나의 구독에 추가.
         register_btn.setOnClickListener {
             if(selectedDate!=null && selectedPlan!=null){
+                val roomDB = RoomDB.getInstance(this)
+                roomDB.userPlanDAO().insertPlan(UserPlanVO(selectedPlan!!.plan_id,selectedDate!!))
+                roomDB.close()
                 Toast.makeText(this,"추가됐습니다!",Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this,MainActivity::class.java))
+                finish()
             }
             else
                 Toast.makeText(this,"플랜과 날짜를 모두 선택해주세요.",Toast.LENGTH_SHORT).show()

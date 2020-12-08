@@ -36,6 +36,7 @@ class DetailActivity : AppCompatActivity() {
             val intent = Intent(this,RegisterActivity::class.java)
             intent.putExtra(AppConstants.INTENT_EXTRA_APPVO,appVO)
             startActivity(intent)
+            finish()
         }
     }
 

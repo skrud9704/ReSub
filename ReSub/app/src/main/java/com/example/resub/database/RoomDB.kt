@@ -6,13 +6,14 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.example.resub.model.AppVO
+import com.example.resub.model.UserPlanVO
 
-@Database(version = 1, entities = [AppVO::class], exportSchema = false)
+@Database(version = 1, entities = [AppVO::class, UserPlanVO::class], exportSchema = false)
 //@TypeConverters(Converter::class)
 abstract class RoomDB : RoomDatabase(){
 
     abstract fun appDAO() : AppDAO
-
+    abstract fun userPlanDAO() : UserPlanDAO
 
     // 싱글톤
     companion object{

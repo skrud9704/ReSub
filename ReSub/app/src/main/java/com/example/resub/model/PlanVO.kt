@@ -4,6 +4,10 @@ import com.google.gson.annotations.SerializedName
 
 class PlanVO {
     constructor()
+
+    @SerializedName("id")  // 변경금지
+    var plan_id : Int = -1
+
     @SerializedName("plan_name")  // 변경금지
     var plan_name : String = ""
 
@@ -16,7 +20,8 @@ class PlanVO {
     @SerializedName("plan_benefit")  // 변경금지
     var plan_benefit : String = ""
 
-    constructor(name : String, charge : String, period : String, benefit : String) : this() {
+    constructor(id:Int, name : String, charge : String, period : String, benefit : String) : this() {
+        this.plan_id = id
         this.plan_name = name
         this.plan_charge = charge
         this.plan_period = period
