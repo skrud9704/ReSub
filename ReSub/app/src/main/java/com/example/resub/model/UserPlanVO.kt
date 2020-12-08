@@ -31,6 +31,6 @@ class UserPlanVO {
     }
 
     fun setDate(date : Date){
-        this.register_date = "${DateUtils.getYear(date)}-${DateUtils.getDayNumber(date)}-${DateUtils.getDayNumber(date)}"
+        this.register_date = "${DateUtils.getYear(date)}-${DateUtils.getMonthNumber(date)}-${DateUtils.getDayNumber(date)}"
     }
 }
