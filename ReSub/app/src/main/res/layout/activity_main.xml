@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,6 +10,7 @@
 
     <!-- HEAD 시작 -->
     <LinearLayout
+        android:id="@+id/main_head"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -41,10 +42,12 @@
     <!-- MAIN 시작 -->
     <!-- 금액 부분 시작 -->
     <LinearLayout
+        android:id="@+id/main_body"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginStart="@dimen/basic_margin_contents">
+        android:layout_marginStart="@dimen/basic_margin_contents"
+        android:layout_below="@+id/main_head">
         <TextView
             style="@style/TextAppearance.AppCompat.Normal"
             android:layout_width="wrap_content"
@@ -59,8 +62,17 @@
             android:text="@string/main_won"/>
     </LinearLayout>
     <!-- 금액 부분 끝 -->
+
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/main_body">
+
+    </FrameLayout>
+
     <!-- 어플 부분 시작-->
-    <LinearLayout
+    <!--<LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
@@ -88,19 +100,20 @@
                 android:scaleType="centerCrop"
                 app:maxImageSize="250dp" />
 
-            <com.example.resub.CustomBottomNavigation
-                android:id="@+id/custom_bottom_nav"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                app:itemTextColor="@android:color/white"
-                app:labelVisibilityMode="unlabeled"
-                android:backgroundTint="@color/colorWhite" />
+
         </RelativeLayout>
 
-    </LinearLayout>
+    </LinearLayout>-->
     <!-- 어플 부분 끝-->
+    <com.example.resub.CustomBottomNavigation
+        android:id="@+id/custom_bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:itemTextColor="@android:color/white"
+        app:labelVisibilityMode="unlabeled"
+        android:backgroundTint="@color/colorWhite" />
     <!-- MAIN 끝 -->
-</LinearLayout>
+</RelativeLayout>
 
 

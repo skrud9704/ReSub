@@ -70,7 +70,6 @@ class RegisterActivity : AppCompatActivity(){
             if(selectedDate!=null && selectedPlan!=null){
                 val roomDB = RoomDB.getInstance(this)
                 roomDB.userPlanDAO().insertPlan(UserPlanVO(selectedPlan!!.plan_id,selectedDate!!))
-                roomDB.close()
                 Toast.makeText(this,"추가됐습니다!",Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this,MainActivity::class.java))
                 finish()

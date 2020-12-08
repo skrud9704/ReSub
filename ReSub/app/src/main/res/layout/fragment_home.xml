@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 어플 부분 시작-->
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    tools:context="view.main.HomeFragment">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_body_height"
+        android:orientation="vertical"
+        android:layout_gravity="bottom"
+        android:background="@drawable/shape_top_radius">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/apps_pager"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/main_viewpager_height"
+            android:layout_marginTop="@dimen/main_viewpager_marginTop"/>
+
+        <ImageView
+            android:id="@+id/fab"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="30dp"
+            android:src="@mipmap/ic_sub_add"
+            android:scaleType="centerCrop"
+            app:maxImageSize="250dp" />
+
+    </RelativeLayout>
+
+</FrameLayout>
+    <!-- 어플 부분 끝-->
